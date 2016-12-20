@@ -1,0 +1,10 @@
+<h2>Upload image</h2>
+<form id="image-upload-form"
+      enctype="multipart/form-data"
+      name="image-upload-form"
+      method="post"
+      ng-submit="projectsView.submitForm($event)"
+      action="http://127.0.0.1:8080/project/1/images">
+  Please select a file to upload : <input type="file" name="image" />
+  <button type="submit">Submit</button>
+</form>
