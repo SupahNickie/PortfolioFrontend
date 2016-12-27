@@ -3,7 +3,9 @@
     .module('app')
     .controller('projectsController', ProjectsController);
 
-  function ProjectsController() {
+  ProjectsController.$inject = ['$http', 'ProjectService'];
+
+  function ProjectsController($http, ProjectService) {
     var projectsView = this;
 
     projectsView.submitForm = submitForm;
@@ -11,7 +13,15 @@
     init();
 
     function init() {
-      console.log("I should index the projects")
+      $http({
+        method: 'GET',
+        url: 'http://127.0.0.1:8080/projects'
+      })
+      .then(indexProjects);
+    }
+
+    function indexProjects(response) {
+      ProjectService.index(response);
     }
 
     function submitForm($event) {
