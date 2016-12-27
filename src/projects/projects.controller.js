@@ -3,13 +3,16 @@
     .module('app')
     .controller('projectsController', ProjectsController);
 
-  ProjectsController.$inject = ['$scope'];
-
-  function ProjectsController($scope) {
-    $scope.imageFile;
+  function ProjectsController() {
     var projectsView = this;
 
     projectsView.submitForm = submitForm;
+
+    init();
+
+    function init() {
+      console.log("I should index the projects")
+    }
 
     function submitForm($event) {
       $event.preventDefault();

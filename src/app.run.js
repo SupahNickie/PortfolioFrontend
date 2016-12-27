@@ -5,23 +5,17 @@
     ])
     .config(ConfigureRoutes);
 
-  ConfigureRoutes.$inject = ['$routeProvider']
+  ConfigureRoutes.$inject = ['$routeProvider', '$locationProvider']
 
-  function ConfigureRoutes($routeProvider) {
-    var routeName;
-    var routes = getRoutes();
-
-    function getRoutes() {
-      var app, projects;
-
-      projects = {
-        url: 'projects',
-        templateUrl: 'src/projects/projects.index.html'
-      };
-
-      return {
-        'projects': projects
-      }
-    }
+  function ConfigureRoutes($routeProvider, $locationProvider) {
+    $routeProvider
+      .when("/", {
+        templateUrl: "/src/app.splash.html",
+      })
+      .when("/projects", {
+        templateUrl: "/src/projects/projects.index.html",
+        controller: "projectsController"
+      });
+    $locationProvider.html5Mode(true);
   }
 })();

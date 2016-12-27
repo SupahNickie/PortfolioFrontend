@@ -1,0 +1,55 @@
+@import url("//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic");
+
+:root {
+  --highlight-color: #B22222;
+  --min-width: 900px;
+}
+
+#main {
+  min-width: var(--min-width);
+  margin: 0 auto;
+}
+
+body {
+  font-family: "Lora", Georgia, "Times New Roman", Times, Serif;
+  color: #333333;
+  background-color: #f9f9f9;
+  margin: 0px;
+}
+
+.inline {
+  display: inline-block;
+}
+
+ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--highlight-color);
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+
+/* splash */
+
+#splash-seattle {
+  height: calc(99vh - 93px);
+  width: 99vw;
+  background: url(https://s3.amazonaws.com/portfolio.site.bucket/skyline.png) no-repeat center center fixed;
+  overflow-x: hidden;
+}
+
+#splash-content {
+  margin-left: 18%;
+  margin-top: 40px;
+}
+
