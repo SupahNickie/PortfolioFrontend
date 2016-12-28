@@ -1,0 +1,18 @@
+<h2>Edit project</h2>
+
+<p>image url: {{ projectsView.currentProject.image_url }}</p>
+<p>name: {{ projectsView.currentProject.name }}</p>
+<p>description_long: {{ projectsView.currentProject.description_long }}</p>
+<p>description: {{ projectsView.currentProject.description }}</p>
+<p>url: {{ projectsView.currentProject.url }}</p>
+
+<h2>Upload new image</h2>
+<form id="image-upload-form"
+      enctype="multipart/form-data"
+      name="image-upload-form"
+      method="post"
+      ng-submit="projectsView.submitForm($event)"
+      action="{{ projectsView.targets.imagePost }}">
+  Please select a file to upload : <input type="file" name="image" />
+  <button type="submit">Submit</button>
+</form>

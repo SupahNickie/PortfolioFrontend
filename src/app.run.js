@@ -15,11 +15,18 @@
       })
       .when("/projects", {
         templateUrl: "/src/projects/projects.index.html",
-        controller: "projectsController"
+        controller: "projectsController",
+        controllerAs: "projectsView"
+      })
+      .when("/projects/:id/edit", {
+        templateUrl: "/src/projects/projects.edit.html",
+        controller: "projectsController",
+        controllerAs: "projectsView"
       })
       .when("/contact", {
         templateUrl: "/src/contact/contact.index.html",
-        controller: "contactController"
+        controller: "contactController",
+        controllerAs: "contactView"
       })
     $locationProvider.html5Mode(true);
   }

@@ -5,6 +5,7 @@
 
   function AppController() {
     var appView = this;
+    appView.authenticated = true;
 
   }
 })();

@@ -3,18 +3,23 @@
     .module('app')
     .service('ProjectService', ProjectService);
 
-  function ProjectService() {
+  ProjectService.$inject = ['$q']
+
+  function ProjectService($q) {
     var ProjectService = this;
-    var indexed = {};
 
     ProjectService.index = index;
 
     function index(response) {
-      console.log(response.data);
-    }
+      var deferred = $q.defer();
+      var indexed = [];
 
-    function getIndexed() {
-      return indexed;
+      for (var i = 0; i < response.data.length; i++) {
+        indexed.push(response.data[i]);
+      }
+
+      deferred.resolve(indexed);
+      return deferred.promise;
     }
 
     return ProjectService;
