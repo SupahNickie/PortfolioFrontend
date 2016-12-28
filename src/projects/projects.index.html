@@ -5,6 +5,7 @@
     <p><strong>{{ p.name }}</strong></p>
     <p>{{ p.description }}</p>
     <p>{{ p.description_long }}</p>
+    <p>{{ p.url }}</p>
     <img src="{{ p.image_url }}"></img>
     <br>
     <a ng-if="appView.authenticated" href="/projects/{{ p.id }}/edit">edit</a>

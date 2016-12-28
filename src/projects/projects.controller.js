@@ -10,11 +10,9 @@
 
     projectsView.projects = [];
     projectsView.targets = {
-      "imagePost": $sce.trustAsResourceUrl("http://127.0.0.1:8080/project/" + Math.floor($routeParams["id"]) + "/images")
+      "imagePost": $sce.trustAsResourceUrl("http://127.0.0.1:8080/project/" + Math.floor($routeParams["id"]) + "/images"),
+      "editProject": $sce.trustAsResourceUrl("http://127.0.0.1:8080/project/" + Math.floor($routeParams["id"]))
     }
-
-    // projectsView.setCurrentProject = setCurrentProject;
-    projectsView.submitForm = submitForm;
 
     init();
 
@@ -39,16 +37,6 @@
       console.log(projectsView.projects)
       console.log(Math.floor($routeParams["id"]) - 1)
       return projectsView.projects[Math.floor($routeParams["id"]) - 1];
-    }
-
-    function submitForm($event) {
-      console.log($event.target.action)
-      $event.preventDefault();
-      var form = $event.target
-      var data = new FormData(form)
-      var xhr = new XMLHttpRequest()
-      xhr.open(form.method, form.action)
-      xhr.send(data)
     }
 
   }

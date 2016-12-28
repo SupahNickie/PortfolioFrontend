@@ -6,12 +6,23 @@
 <p>description: {{ projectsView.currentProject.description }}</p>
 <p>url: {{ projectsView.currentProject.url }}</p>
 
+<form id="edit-project-form"
+      data-http-verb="PUT"
+      ng-submit="appView.submitJSON($event)"
+      action="{{ projectsView.targets.editProject }}">
+  <input name="name" type="text" placeholder="name"></input><br>
+  <input name="url" type="text" placeholder="url"></input><br>
+  <textarea name="description" placeholder="description"></textarea><br>
+  <textarea name="description_long" placeholder="long_description"></textarea><br>
+  <button type="submit">Submit</button>
+</form>
+
 <h2>Upload new image</h2>
 <form id="image-upload-form"
+      data-http-verb="POST"
       enctype="multipart/form-data"
       name="image-upload-form"
-      method="post"
-      ng-submit="projectsView.submitForm($event)"
+      ng-submit="appView.submitMultipart($event)"
       action="{{ projectsView.targets.imagePost }}">
   Please select a file to upload : <input type="file" name="image" />
   <button type="submit">Submit</button>
