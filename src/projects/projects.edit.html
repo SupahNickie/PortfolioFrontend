@@ -9,7 +9,7 @@
 <form id="edit-project-form"
       data-http-verb="PUT"
       ng-submit="appView.submitJSON($event)"
-      action="{{ projectsView.targets.editProject }}">
+      action="{{ projectsView.targets.projectEdit }}">
   <input name="name" type="text" placeholder="name"></input><br>
   <input name="url" type="text" placeholder="url"></input><br>
   <textarea name="description" placeholder="description"></textarea><br>
@@ -28,4 +28,9 @@
   <button type="submit">Submit</button>
 </form>
 
-<h2 ng-load="projectsView.grabImages()">Choose new hero image</h2>
+<h2 ng-init="projectsView.grabImages()">Choose new hero image</h2>
+<div ng-repeat="i in projectsView.images">
+  <img class='small-image'
+    src="{{ i.url }}"
+    ng-click="projectsView.chooseImage(i)">
+</div>
