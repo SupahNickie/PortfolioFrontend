@@ -19,7 +19,10 @@
     function init() {
       $http({
         method: 'GET',
-        url: 'http://127.0.0.1:8080/projects'
+        url: 'http://127.0.0.1:8080/projects',
+        headers: {
+          "portfolio-authorization": "hardcoded for now"
+        }
       })
       .then(indexProjects);
     }
@@ -34,8 +37,6 @@
     }
 
     function getCurrentProject() {
-      console.log(projectsView.projects)
-      console.log(Math.floor($routeParams["id"]) - 1)
       return projectsView.projects[Math.floor($routeParams["id"]) - 1];
     }
 
