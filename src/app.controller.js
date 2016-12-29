@@ -15,7 +15,18 @@
 
     $rootScope.$on('authenticated', function() {
       appView.isAuthenticated = true;
-    })
+    });
+    $rootScope.$on('flashMessage', function(event, message) {
+      setFlash(message);
+    });
+
+    function setFlash(message) {
+      var flash = document.getElementById("flash-message");
+      flash.innerText = message;
+      setTimeout(function() {
+        flash.innerText = "";
+      }, 3000);
+    }
 
     function submitJSON($event) {
       $event.preventDefault();

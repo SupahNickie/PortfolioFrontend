@@ -18,6 +18,11 @@
         controller: "projectsController",
         controllerAs: "projectsView"
       })
+      .when("/projects/new", {
+        templateUrl: "/src/projects/projects.new.html",
+        controller: "projectsController",
+        controllerAs: "projectsView"
+      })
       .when("/projects/:id/edit", {
         templateUrl: "/src/projects/projects.edit.html",
         controller: "projectsController",

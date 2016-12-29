@@ -1,0 +1,13 @@
+<div class="container">
+  <h2>New project</h2>
+  <form id="new-project-form"
+        data-http-verb="POST"
+        ng-submit="appView.submitJSON($event)"
+        action="{{ projectsView.targets.projectPost }}">
+    <input name="name" type="text" placeholder="name"></input><br>
+    <input name="url" type="text" placeholder="url"></input><br>
+    <textarea name="description" placeholder="description"></textarea><br>
+    <textarea name="description_long" placeholder="long_description"></textarea><br>
+    <button type="submit">Submit</button>
+  </form>
+</div>

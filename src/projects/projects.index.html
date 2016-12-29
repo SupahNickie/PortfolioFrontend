@@ -8,6 +8,14 @@
     <p>{{ p.url }}</p>
     <img src="{{ p.image_url }}"></img>
     <br>
-    <a ng-if="appView.isAuthenticated" href="/projects/{{ p.id }}/edit">edit</a>
+    <div ng-if="appView.isAuthenticated">
+      <a href="/projects/{{ p.id }}/edit">Edit</a>
+      <a href="#" ng-click="projectsView.deleteProject(p)">Delete</a>
+    </div>
+  </div>
+
+  <div ng-if="appView.isAuthenticated">
+    <br><br><br>
+    <a href='/projects/new'>New</a>
   </div>
 </div>
