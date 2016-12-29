@@ -8,6 +8,6 @@
     <p>{{ p.url }}</p>
     <img src="{{ p.image_url }}"></img>
     <br>
-    <a ng-if="appView.authenticated" href="/projects/{{ p.id }}/edit">edit</a>
+    <a ng-if="appView.isAuthenticated" href="/projects/{{ p.id }}/edit">edit</a>
   </div>
 </div>

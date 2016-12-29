@@ -28,6 +28,11 @@
         controller: "contactController",
         controllerAs: "contactView"
       })
+      .when("/sessions", {
+        templateUrl: "/src/sessions/sessions.index.html",
+        controller: "sessionsController",
+        controllerAs: "sessionsView"
+      })
     $locationProvider.html5Mode(true);
   }
 

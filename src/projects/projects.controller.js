@@ -16,13 +16,12 @@
 
     init();
 
+    projectsView.grabImages = grabImages;
+
     function init() {
       $http({
         method: 'GET',
-        url: 'http://127.0.0.1:8080/projects',
-        headers: {
-          "portfolio-authorization": "hardcoded for now"
-        }
+        url: 'http://127.0.0.1:8080/projects'
       })
       .then(indexProjects);
     }

@@ -3,12 +3,19 @@
     .module('app')
     .controller('appController', AppController);
 
-  function AppController() {
+  AppController.$inject = ['$rootScope']
+
+  function AppController($rootScope) {
     var appView = this;
-    appView.authenticated = true;
+
+    appView.isAuthenticated = false;
 
     appView.submitJSON = submitJSON;
     appView.submitMultipart = submitMultipart;
+
+    $rootScope.$on('authenticated', function() {
+      appView.isAuthenticated = true;
+    })
 
     function submitJSON($event) {
       $event.preventDefault();
@@ -16,6 +23,7 @@
       var data = JSON.stringify(objectify(form))
       var xhr = new XMLHttpRequest()
       xhr.open(form.getAttribute('data-http-verb'), form.action)
+      xhr.setRequestHeader("portfolio-authorization", window.localStorage['portfolio-token']);
       xhr.setRequestHeader("Content-type", "application/json");
       xhr.send(data)
     }
@@ -26,6 +34,7 @@
       var data = new FormData(form)
       var xhr = new XMLHttpRequest()
       xhr.open(form.getAttribute('data-http-verb'), form.action)
+      xhr.setRequestHeader("portfolio-authorization", window.localStorage['portfolio-token']);
       xhr.send(data)
     }
 
