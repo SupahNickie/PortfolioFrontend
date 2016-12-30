@@ -3,9 +3,9 @@
     .module("app")
     .controller("sessionsController", SessionsController);
 
-  SessionsController.$inject = ['$http', '$rootScope']
+  SessionsController.$inject = ['$http', '$rootScope', 'FlashService']
 
-  function SessionsController($http, $rootScope) {
+  function SessionsController($http, $rootScope, FlashService) {
     var sessionsView = this;
 
     sessionsView.submit = submit;
@@ -20,9 +20,13 @@
     }
 
     function handleAuthResponse(response) {
-      if (response.data.secret.length > 0) {
+      if (response.data.secret && response.data.secret.length > 0) {
         $rootScope.$broadcast("authenticated");
         window.localStorage['portfolio-token'] = response.data['secret'];
+        FlashService.broadcast("Successfully authenticated!")
+      }
+      else {
+        window.location = "/";
       }
     }
   }

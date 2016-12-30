@@ -3,3 +3,29 @@
   max-height: 400px;
   cursor: pointer;
 }
+
+.hero-image {
+  width: 65%;
+  cursor: pointer;
+  clear: right;
+}
+
+.project-wrapper {
+  height: 500px;
+  width: 100%;
+}
+
+.spacer {
+  height: 15px;
+  width: 100%;
+}
+
+.project-item {
+  margin-top: 10%;
+  width: calc(35% - 10px);
+  padding-right: 10px;
+}
+
+.left {
+  float: left;
+}

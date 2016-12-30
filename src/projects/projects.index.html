@@ -1,17 +1,19 @@
 <div class="container">
-  <h2>Projects</h2>
+  <h1>Projects</h1>
 
-  <div ng-repeat="p in projectsView.projects">
-    <p><strong>{{ p.name }}</strong></p>
-    <p>{{ p.description }}</p>
-    <p>{{ p.description_long }}</p>
-    <p>{{ p.url }}</p>
-    <img src="{{ p.image_url }}"></img>
-    <br>
-    <div ng-if="appView.isAuthenticated">
-      <a href="/projects/{{ p.id }}/edit">Edit</a>
-      <a href="#" ng-click="projectsView.deleteProject(p)">Delete</a>
+  <div class="project-wrapper" ng-repeat="p in projectsView.projects">
+    <div class="project-item left">
+      <h3><strong>{{ p.name }}</strong></h3>
+      <p>{{ p.description }}</p>
+      <a href="{{ p.url }}">{{ p.url }}</a><br><br>
+      <a href='/projects/{{ p.id }}'>View</a>
+      <span ng-if="appView.isAuthenticated"> |
+        <a href="/projects/{{ p.id }}/edit">Edit</a> |
+        <a href="#" ng-click="projectsView.deleteProject(p)">Delete</a>
+      </span>
     </div>
+    <img class="hero-image left" src="{{ p.image_url }}"></img>
+    <br>
   </div>
 
   <div ng-if="appView.isAuthenticated">

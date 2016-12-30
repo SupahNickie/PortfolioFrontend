@@ -28,6 +28,11 @@
         controller: "projectsController",
         controllerAs: "projectsView"
       })
+      .when("/projects/:id", {
+        templateUrl: "/src/projects/projects.show.html",
+        controller: "projectsController",
+        controllerAs: "projectsView"
+      })
       .when("/contact", {
         templateUrl: "/src/contact/contact.index.html",
         controller: "contactController",
