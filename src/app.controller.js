@@ -10,6 +10,7 @@
 
     appView.isAuthenticated = false;
 
+    appView.convertNewline = convertNewline;
     appView.submitJSON = submitJSON;
     appView.submitMultipart = submitMultipart;
 
@@ -19,6 +20,10 @@
     $rootScope.$on('flashMessage', function(event, message) {
       setFlash(message);
     });
+
+    function convertNewline(text) {
+      return text.replace(/[\r\n]/g, "<br>");
+    }
 
     function setFlash(message) {
       var flash = document.getElementById("flash-message");

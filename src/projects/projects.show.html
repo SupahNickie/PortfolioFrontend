@@ -1,3 +1,12 @@
-<div class="container">
-
+<div ng-init= "projectsView.grabImages()" class="container">
+  <h2>{{ projectsView.currentProject.name }}</h2>
+  <p><strong>{{ projectsView.currentProject.description }}</strong></p>
+  <p ng-bind-html="appView.convertNewline(projectsView.currentProject.description_long)"></p>
+  <p>Project Website: <a href="{{ projectsView.currentProject.url }}">{{ projectsView.currentProject.url }}</a>
+  <div id="project-images">
+    <br><br>
+    <div class="inline" ng-repeat="i in projectsView.images">
+      <a href="{{ i.url }}"><img src="{{ i.url }}"></img></a>
+    </div>
+  </div>
 </div>

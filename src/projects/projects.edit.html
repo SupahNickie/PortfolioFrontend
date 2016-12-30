@@ -1,20 +1,14 @@
 <div class="container">
   <h2>Edit project</h2>
 
-  <p>image url: {{ projectsView.currentProject.image_url }}</p>
-  <p>name: {{ projectsView.currentProject.name }}</p>
-  <p>description_long: {{ projectsView.currentProject.description_long }}</p>
-  <p>description: {{ projectsView.currentProject.description }}</p>
-  <p>url: {{ projectsView.currentProject.url }}</p>
-
   <form id="edit-project-form"
         data-http-verb="PUT"
         ng-submit="appView.submitJSON($event)"
         action="{{ projectsView.targets.projectPut }}">
-    <input name="name" type="text" placeholder="name"></input><br>
-    <input name="url" type="text" placeholder="url"></input><br>
-    <textarea name="description" placeholder="description"></textarea><br>
-    <textarea name="description_long" placeholder="long_description"></textarea><br>
+    <input value="{{ projectsView.currentProject.name }}" name="name" type="text" placeholder="name"></input><br>
+    <input value="{{ projectsView.currentProject.url }}" name="url" type="text" placeholder="url"></input><br>
+    <textarea rows="5" cols="50" name="description">{{ projectsView.currentProject.description }}</textarea><br>
+    <textarea rows="15" cols="100" name="description_long">{{ projectsView.currentProject.description_long }}</textarea><br>
     <button type="submit">Submit</button>
   </form>
 

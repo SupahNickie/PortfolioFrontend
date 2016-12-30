@@ -1,7 +1,8 @@
 (function() {
   angular
     .module('app', [
-      'ngRoute'
+      'ngRoute',
+      'ngSanitize'
     ])
     .config(ConfigureRoutes)
     .run(ListenForRouteChange);

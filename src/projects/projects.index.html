@@ -12,7 +12,7 @@
         <a href="#" ng-click="projectsView.deleteProject(p)">Delete</a>
       </span>
     </div>
-    <img class="hero-image left" src="{{ p.image_url }}"></img>
+    <a href='/projects/{{ p.id }}'><img class="hero-image left" src="{{ p.image_url }}"></img></a>
     <br>
   </div>
 
